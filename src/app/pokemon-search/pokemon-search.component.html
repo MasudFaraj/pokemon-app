@@ -1,0 +1,13 @@
+<section class="searchField">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <input formControlName="search" placeholder="Enter Pokémon Name or ID">
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div *ngIf="pokemon">
+  <h3>{{ pokemon.name }}</h3>
+  <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+</div>

@@ -1,0 +1,23 @@
+input[formControlName="search"]{
+  border: solid 1px darkgreen;
+  border-radius: 8px;
+  padding: 10px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 30%;
+}
+button {
+  border: solid 1px darkgreen;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  background-color: darkolivegreen;
+  &:hover{
+    background-color: darkgreen;
+    cursor: pointer;
+  }
+}
+.searchField{
+  margin-top: 20px;
+
+}

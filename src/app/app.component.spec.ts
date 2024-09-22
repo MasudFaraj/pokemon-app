@@ -1,9 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(), // Provide the HttpClient to make it available
+      ],
       imports: [AppComponent],
     }).compileComponents();
   });
@@ -24,6 +28,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, pokemon-ang-app');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Hello, pokemon-ang-app');
   });
 });
