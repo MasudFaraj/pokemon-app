@@ -1,13 +1,16 @@
-<section class="searchField">
+<section class="">
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <input formControlName="search" placeholder="Enter Pokémon Name or ID">
-    <button type="submit">Search</button>
+    <button type="submit" [disabled]="searchForm.invalid || loading">Search</button>
   </form>
 </section>
 
 <div *ngIf="loading">Loading...</div>
 <div *ngIf="errorMessage">{{ errorMessage }}</div>
-<div *ngIf="pokemon">
+<!--div *ngIf="pokemon">
   <h3>{{ pokemon.name }}</h3>
   <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
-</div>
+</div-->
+
+<!--pokemon detail-->
+<app-pokemon-detail [pokemon]="pokemon" ></app-pokemon-detail>

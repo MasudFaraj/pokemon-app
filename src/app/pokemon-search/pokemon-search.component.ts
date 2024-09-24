@@ -3,12 +3,14 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {PokemonService} from "../pokemon.service";
 import {NgIf} from "@angular/common";
 import {CommonModule} from "@angular/common";
+import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-search',
   standalone: true,
   imports: [
-    ReactiveFormsModule, NgIf, CommonModule
+    ReactiveFormsModule, NgIf, CommonModule, PokemonDetailComponent
   ],
   templateUrl: './pokemon-search.component.html',
   styleUrl: './pokemon-search.component.css'
@@ -19,7 +21,7 @@ export class PokemonSearchComponent {
   loading : boolean = false;
   errorMessage : string | null = null;
 
-  constructor(private pokemonService: PokemonService, private fb :FormBuilder) {
+  constructor(private pokemonService: PokemonService, private fb :FormBuilder, private router:Router) {
     this.searchForm = this.fb.group({
       search: ['', Validators.required],
     })
@@ -39,8 +41,9 @@ export class PokemonSearchComponent {
           this.loading = false;
         }, error:(error) => {
           console.error('Error occurred:', error);  // Log den Fehler
-          this.errorMessage = 'No pokemon found';
+          this.errorMessage = 'No pokemon found...';
           this.loading = false;
+          this.router.navigateByUrl('/');
         }
       })
     }

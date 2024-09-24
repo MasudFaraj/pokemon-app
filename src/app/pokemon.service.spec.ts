@@ -49,30 +49,3 @@ describe('PokemonService', () => {
     req.flush('Pokemon not found', { status: 404, statusText: 'Not Found' });
   });
 });
-
-/*
-import { TestBed } from '@angular/core/testing';
-
-import { PokemonService } from './pokemon.service';
-
-describe('PokemonService', () => {
-  let service: PokemonService;
-  let httpMock: HttpTestingController;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [PokemonService],
-    });
-    service = TestBed.inject(PokemonService);
-    httpMock = TestBed.inject(HttpTestingController);
-  });
-
-  afterEach(() => {
-    httpMock.verify();
-  });
-
-  
-});
-
-*/
